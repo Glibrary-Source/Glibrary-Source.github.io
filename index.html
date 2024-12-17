@@ -47,16 +47,18 @@
     </style>
 </head>
 <body>
+
+    <!-- android 기준 -->
     <div class="button-container">
         <button class="button-danger">지금 바로 됩니다</button>
         <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(app link)</button>
-        <button class="button-secondary" onclick="openUrl('seepop://')">앱링크테스트(스키마 link)</button>
-    </div>
-
+        <button class="button-secondary" onclick="openUrl('seepop://?type=dog')">앱링크테스트(스키마 link)</button>
+    </div>    
     <script>
         function openUrl(url) {
             window.open(url, '_blank');
         }
     </script>
+    <!--  -->
 </body>
 </html>
