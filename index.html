@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,12 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+
         .button-container {
             display: flex;
             gap: 20px;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -26,40 +29,63 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         .button-primary {
             background-color: #3498db;
             color: white;
         }
+
         .button-secondary {
             background-color: #2ecc71;
             color: white;
         }
+
         .button-danger {
             background-color: #e74c3c;
             color: white;
         }
+
         button:hover {
             opacity: 0.8;
         }
-        a {
+
+        a{
             text-decoration: none;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- android 기준 -->
+    <!-- android, ios 기준 -->
     <div class="button-container">
         <button class="button-danger">지금 바로 됩니다</button>
-        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(app link)</button>
-        <button class="button-secondary" onclick="openUrl('seepop://?type=dog')">앱링크테스트(스키마 link)</button>
-        <title>seepop://?type=dog(링크 이름)</title>
-    </div>    
+        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(applink)</button>
+        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(ios)</button>
+        <button class="button-secondary" onclick="openAppOrMarket('seepop://?type=dog', 'market://details?id=com.kapitalletter.project_poppin')">앱링크테스트(스키마 link)</button>
+        <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
+    </div>
     <script>
         function openUrl(url) {
             window.open(url, '_blank');
         }
+
+        // 안드로이드에서 스키마 방식 링크 사용 시 앱 실행 여부 확인 및 마켓 연결
+        function openAppOrMarket(appUrl, marketUrl) {
+            var startTime = new Date().getTime();
+            window.location.href = appUrl;
+
+            setTimeout(function () {
+                var endTime = new Date().getTime();
+                var elapsed = endTime - startTime;
+
+                if (elapsed < 2000 || document.hasFocus()) {
+                    window.location.href = marketUrl;
+                }
+            }, 1500);
+        }
     </script>
     <!--  -->
 </body>
+
 </html>
