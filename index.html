@@ -49,7 +49,7 @@
             opacity: 0.8;
         }
 
-        a{
+        a {
             text-decoration: none;
         }
     </style>
@@ -59,32 +59,59 @@
 
     <!-- android, ios 기준 -->
     <div class="button-container">
-        <button class="button-danger">지금 바로 됩니다</button>
-        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(applink)</button>
         <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(ios)</button>
-        <button class="button-secondary" onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
-        <button class="button-secondary" onclick="openAppOrMarket('seepop://?type=dog', 'market://details?id=com.kapitalletter.project_poppin')">앱링크테스트(스키마 link)</button>
+        <button class="button-secondary"
+            onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
+        <button class="button-secondary"
+            onclick="openAppOrMarket('seepop://?type=dog', 'market://details?id=com.kapitalletter.project_poppin')">앱링크테스트(스키마
+            link/android)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
+        <button class="button-secondary" onclick="">변경 완료 1</button>
     </div>
     <script>
         function openUrl(url) {
             window.open(url, '_blank');
         }
 
-        // 안드로이드에서 스키마 방식 링크 사용 시 앱 실행 여부 확인 및 마켓 연결
         function openAppOrMarket(appUrl, marketUrl) {
             var startTime = new Date().getTime();
+
+            var visibilityChangeHandler = function () {
+                if (document.hidden || document.visibilityState === 'hidden') {
+                    // 탭이 백그라운드로 전환되었으므로 앱 실행 성공으로 간주
+                    document.removeEventListener('visibilitychange', visibilityChangeHandler); // 이벤트 리스너 제거 (중복 실행 방지)
+                    return; // 마켓으로 이동하지 않음
+                }
+            };
+
+            document.addEventListener('visibilitychange', visibilityChangeHandler);
+
             window.location.href = appUrl;
 
             setTimeout(function () {
-                var endTime = new Date().getTime();
-                var elapsed = endTime - startTime;
-
-                if (elapsed < 2000 || document.hasFocus()) {
+                // 타임아웃 내에서 visibilitychange 이벤트가 발생하지 않았다면
+                // 앱 실행 실패로 간주하고 마켓으로 이동
+                if (document.visibilityState !== 'hidden') { // 추가된 조건
                     window.location.href = marketUrl;
                 }
-            }, 1500);
+                document.removeEventListener('visibilitychange', visibilityChangeHandler);
+            }, 2000); // 타임아웃 시간 조정 (필요에 따라)
         }
+
+        // 안드로이드에서 스키마 방식 링크 사용 시 앱 실행 여부 확인 및 마켓 연결
+        // function openAppOrMarket(appUrl, marketUrl) {
+        //     var startTime = new Date().getTime();
+        //     window.location.href = appUrl;
+
+        //     setTimeout(function () {
+        //         var endTime = new Date().getTime();
+        //         var elapsed = endTime - startTime;
+
+        //         if (elapsed < 2000 || document.hasFocus()) {
+        //             window.location.href = marketUrl;
+        //         }
+        //     }, 1500);
+        // }
     </script>
     <!--  -->
 </body>
