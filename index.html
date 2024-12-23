@@ -7,19 +7,27 @@
     <title>앱링크 테스트</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
+            /* 수평 중앙 정렬 */
             align-items: center;
-            height: 100vh;
+            /* 수직 중앙 정렬 */
+            min-height: 100vh;
+            /* 화면 높이에 맞춤 */
             margin: 0;
-            background-color: #f0f0f0;
+            /* body 기본 margin 제거 */
         }
 
         .button-container {
-            display: flex;
-            gap: 20px;
-        }
+    display: flex;
+    justify-content: center; /* 버튼들을 수평 중앙 정렬 */
+    flex-direction: column; /* 버튼들을 세로로 정렬 (필요한 경우) */
+    align-items: center; /* 버튼들을 컨테이너 중앙에 정렬 (필요한 경우) */
+    gap: 10px; /* 버튼 사이 간격 */
+    /* background-color: #f0f0f0; 컨테이너 영역 확인용 (선택적) */
+    padding: 20px; /* 컨테이너 안쪽 여백 (선택적) */
+}
+
 
         button {
             padding: 10px 20px;
@@ -59,14 +67,15 @@
 
     <!-- android, ios 기준 -->
     <div class="button-container">
-        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io/?type=dog')">앱링크테스트(ios)</button>
+        <button class="button-secondary"
+            onclick="openUrl('https://glibrary-source.github.io/?type=dog')">앱링크테스트(ios)</button>
         <button class="button-secondary"
             onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
         <button class="button-secondary"
             onclick="openAppOrMarket('seepop://?type=dog', 'market://details?id=com.kapitalletter.project_poppin')">앱링크테스트(스키마
             link/android)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
-        <button class="button-secondary" onclick="">변경 완료 1</button>
+        <button class="button-secondary" onclick="">변경 완료 2</button>
     </div>
     <script>
         function openUrl(url) {
