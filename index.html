@@ -59,7 +59,7 @@
 
     <!-- android, ios 기준 -->
     <div class="button-container">
-        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io')">앱링크테스트(ios)</button>
+        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io/?type=dog')">앱링크테스트(ios)</button>
         <button class="button-secondary"
             onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
         <button class="button-secondary"
@@ -97,21 +97,6 @@
                 document.removeEventListener('visibilitychange', visibilityChangeHandler);
             }, 2000); // 타임아웃 시간 조정 (필요에 따라)
         }
-
-        // 안드로이드에서 스키마 방식 링크 사용 시 앱 실행 여부 확인 및 마켓 연결
-        // function openAppOrMarket(appUrl, marketUrl) {
-        //     var startTime = new Date().getTime();
-        //     window.location.href = appUrl;
-
-        //     setTimeout(function () {
-        //         var endTime = new Date().getTime();
-        //         var elapsed = endTime - startTime;
-
-        //         if (elapsed < 2000 || document.hasFocus()) {
-        //             window.location.href = marketUrl;
-        //         }
-        //     }, 1500);
-        // }
     </script>
     <!--  -->
 </body>
