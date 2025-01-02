@@ -1,9 +1,0 @@
-[{
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.kapitalletter.project_poppin",
-      "sha256_cert_fingerprints":
-      ["72:3B:D7:3D:BF:B7:FC:49:E8:C9:74:51:AF:2D:FA:C7:7E:68:9E:A5:B7:D6:7E:99:37:41:AF:39:E7:03:11:8A"]
-    }
-  }]
