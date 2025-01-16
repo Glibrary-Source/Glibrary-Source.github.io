@@ -99,19 +99,19 @@
                 case 'android':
                     const marketUrlAndroid = 'market://details?id=com.kapitalletter.project_poppin';
                     const appUrlAndroid = 'seepop://?type=dog';
-                    _userBrowserCheck(userAgent, appUrlAndroid, marketUrlAndroid);
+                    _userBrowserCheck(appUrlAndroid, marketUrlAndroid);
                     break
                 case 'ios':
                     const marketUrlIos = 'market://details?id=com.kapitalletter.project_poppin';
                     const appUrlIos = 'seepop://?type=dog'
-                    _userBrowserCheck(userAgent, appUrlIos, marketUrlIos);
+                    _userBrowserCheck(appUrlIos, marketUrlIos);
                     break
                 case 'another':
                     break
             }
         }
 
-        function _userPlatformCheck(userAgent) {
+        function _userPlatformCheck() {
             const isAndroid = userAgent.indexOf('android') > -1;
             const isIOS = userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1;
             if (isAndroid) {
@@ -123,7 +123,7 @@
             }
         }
 
-        function _userBrowserCheck(userAgent) {
+        function _userBrowserCheck() {
             const isChrome = userAgent.indexOf('chrome') > -1 && userAgent.indexOf('edg') === -1 && userAgent.indexOf('opr') === -1 && userAgent.indexOf('samsungbrowser') === -1;
             const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('chrome') === -1;
             const isSamsungBrowser = userAgent.indexOf('samsungbrowser') > -1;
