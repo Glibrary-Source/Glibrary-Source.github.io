@@ -6,7 +6,7 @@
         "appID": "K88W433535.com.kapitalletter.projectPoppin.v2",
         "paths": [
           "/users/*",
-          "/CurationResult"
+          "/CurationResult/*"
         ]
       }
     ]
