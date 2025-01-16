@@ -80,10 +80,9 @@
         <button class="button-secondary"
             onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
         <button class="button-secondary"
-            onclick="openAppOrMarket('seepop://?type=dog')">앱링크테스트(스키마
-            link/android)</button>
+            onclick="openAppOrMarket()">앱링크테스트(스키마link/android)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
-        <button class="button-secondary" onclick="">변경 완료 9</button>
+        <button class="button-secondary" onclick="">변경 완료 10</button>
     </div>
     <script>
         const userAgent = navigator.userAgent.toLowerCase();
@@ -92,7 +91,7 @@
             window.open(url, '_blank');
         }
 
-        function openAppOrMarket(appUrl) {
+        function openAppOrMarket() {
             const userPlatfrom = _userPlatformCheck(userAgent);
 
             switch (userPlatfrom) {
