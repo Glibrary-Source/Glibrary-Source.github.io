@@ -83,7 +83,7 @@
             onclick="openAppOrMarket('seepop://?type=dog')">앱링크테스트(스키마
             link/android)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
-        <button class="button-secondary" onclick="">변경 완료 7</button>
+        <button class="button-secondary" onclick="">변경 완료 8</button>
     </div>
     <script>
         const userAgent = navigator.userAgent.toLowerCase();
@@ -96,14 +96,14 @@
             const userPlatfrom = _userPlatformCheck(userAgent);
 
             switch (userPlatfrom) {
-                case 'android':
-                    const marketUrlAndroid = 'market://details?id=com.kapitalletter.project_poppin';
+                case 'android':                
                     const appUrlAndroid = 'seepop://?type=dog';
+                    const marketUrlAndroid = 'market://details?id=com.kapitalletter.project_poppin';
                     _userBrowserCheck(appUrlAndroid, marketUrlAndroid);
                     break
                 case 'ios':
-                    const marketUrlIos = 'market://details?id=com.kapitalletter.project_poppin';
                     const appUrlIos = 'seepop://?type=dog'
+                    const marketUrlIos = 'itms-apps://itunes.apple.com/app/id6504471691';
                     _userBrowserCheck(appUrlIos, marketUrlIos);
                     break
                 case 'another':
@@ -123,22 +123,22 @@
             }
         }
 
-        function _userBrowserCheck(appUrlAndroid, marketUrlAndroid) {
+        function _userBrowserCheck(appUrl, marketUrl) {
             const isChrome = userAgent.indexOf('chrome') > -1 && userAgent.indexOf('edg') === -1 && userAgent.indexOf('opr') === -1 && userAgent.indexOf('samsungbrowser') === -1;
             const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('chrome') === -1;
             const isSamsungBrowser = userAgent.indexOf('samsungbrowser') > -1;
             const isKakaoBrowser = userAgent.indexOf('kakaotalk') > -1;
 
             if (isChrome) {
-                _openBrowser(appUrlAndroid, marketUrlAndroid);
+                _openBrowser(appUrl, marketUrl);
             } else if (isSafari) {
-                _openBrowser(appUrlAndroid, marketUrlAndroid);
+                _openBrowser(appUrl, marketUrl);
             } else if (isSamsungBrowser) {
-                _openBrowser(appUrlAndroid, marketUrlAndroid);
+                _openBrowser(appUrl, marketUrl);
             } else if (isKakaoBrowser) {
-                _openBrowser(appUrlAndroid, marketUrlAndroid);
+                _openBrowser(appUrl, marketUrl);
             } else {
-                _openBrowser(appUrlAndroid, marketUrlAndroid);
+                _openBrowser(appUrl, marketUrl);
             }
         }
 
