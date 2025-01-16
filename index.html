@@ -99,14 +99,14 @@
                     const appUrlAndroid = 'seepop://?type=dog';
                     const marketUrlAndroid = 'market://details?id=com.kapitalletter.project_poppin';
                     _userBrowserCheck(appUrlAndroid, marketUrlAndroid);
-                    break
+                    break;
                 case 'ios':
-                    const appUrlIos = 'seepop://?type=dog'
+                    const appUrlIos = 'seepop://?type=dog';
                     const marketUrlIos = 'itms-apps://itunes.apple.com/app/id6504471691';
                     _userBrowserCheck(appUrlIos, marketUrlIos);
-                    break
+                    break;
                 case 'another':
-                    break
+                    break;
             }
         }
 
@@ -114,11 +114,11 @@
             const isAndroid = userAgent.indexOf('android') > -1;
             const isIOS = userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1;
             if (isAndroid) {
-                return 'android'
+                return 'android';
             } else if (isIOS) {
-                return 'ios'
+                return 'ios';
             } else {
-                return 'another'
+                return 'another';
             }
         }
 
