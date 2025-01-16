@@ -123,22 +123,22 @@
             }
         }
 
-        function _userBrowserCheck() {
+        function _userBrowserCheck(appUrlAndroid, marketUrlAndroid) {
             const isChrome = userAgent.indexOf('chrome') > -1 && userAgent.indexOf('edg') === -1 && userAgent.indexOf('opr') === -1 && userAgent.indexOf('samsungbrowser') === -1;
             const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('chrome') === -1;
             const isSamsungBrowser = userAgent.indexOf('samsungbrowser') > -1;
             const isKakaoBrowser = userAgent.indexOf('kakaotalk') > -1;
 
             if (isChrome) {
-                _openBrowser();
+                _openBrowser(appUrlAndroid, marketUrlAndroid);
             } else if (isSafari) {
-                _openBrowser();
+                _openBrowser(appUrlAndroid, marketUrlAndroid);
             } else if (isSamsungBrowser) {
-                _openBrowser();
+                _openBrowser(appUrlAndroid, marketUrlAndroid);
             } else if (isKakaoBrowser) {
-                _openBrowser();
+                _openBrowser(appUrlAndroid, marketUrlAndroid);
             } else {
-                _openBrowser();
+                _openBrowser(appUrlAndroid, marketUrlAndroid);
             }
         }
 
