@@ -56,7 +56,7 @@
         .button-danger {
             background-color: #e74c3c;
             color: white;
-            
+
         }
 
         button:hover {
@@ -75,22 +75,74 @@
     <div class="button-container">
         <button class="button-secondary"
             onclick="openUrl('https://glibrary-source.github.io/users/?type=dog')">앱링크테스트(ios)</button>
-            <button class="button-secondary"
-            onclick="openUrl('https://glibrary-source.github.io/CurationResult')">앱링크테스트 큐레이션테스트(ios)</button>
+        <button class="button-secondary" onclick="openUrl('https://glibrary-source.github.io/CurationResult')">앱링크테스트
+            큐레이션테스트(ios)</button>
         <button class="button-secondary"
             onclick="openUrl('https://project-seepop-cbti-941120982133.asia-northeast3.run.app')">앱링크 큐레이션(ios)</button>
         <button class="button-secondary"
-            onclick="openAppOrMarket('seepop://?type=dog', 'market://details?id=com.kapitalletter.project_poppin')">앱링크테스트(스키마
+            onclick="openAppOrMarket('seepop://?type=dog')">앱링크테스트(스키마
             link/android)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
         <button class="button-secondary" onclick="">변경 완료 5</button>
     </div>
     <script>
+        const userAgent = navigator.userAgent.toLowerCase();
+
         function openUrl(url) {
             window.open(url, '_blank');
         }
 
-        function openAppOrMarket(appUrl, marketUrl) {
+        function openAppOrMarket(appUrl) {
+            const userPlatfrom = _userPlatformCheck(userAgent);
+
+            switch (userPlatfrom) {
+                case 'android':
+                    const marketUrlAndroid = 'market://details?id=com.kapitalletter.project_poppin';
+                    const appUrlAndroid = 'seepop://?type=dog';
+                    _userBrowserCheck(userAgent, appUrlAndroid, marketUrlAndroid);
+                    break
+                case 'ios':
+                    const marketUrlIos = 'market://details?id=com.kapitalletter.project_poppin';
+                    const appUrlIos = 'seepop://?type=dog'
+                    _userBrowserCheck(userAgent, appUrlIos, marketUrlIos);
+                    break
+                case 'another':
+                    break
+            }
+        }
+
+        function _userPlatformCheck(userAgent) {
+            const isAndroid = userAgent.indexOf('android') > -1;
+            const isIOS = userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1;
+            if (isAndroid) {
+                return 'android'
+            } else if (isIOS) {
+                return 'ios'
+            } else {
+                return 'another'
+            }
+        }
+
+        function _userBrowserCheck(userAgent) {
+            const isChrome = userAgent.indexOf('chrome') > -1 && userAgent.indexOf('edg') === -1 && userAgent.indexOf('opr') === -1 && userAgent.indexOf('samsungbrowser') === -1;
+            const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('chrome') === -1;
+            const isSamsungBrowser = userAgent.indexOf('samsungbrowser') > -1;
+            const isKakaoBrowser = userAgent.indexOf('kakaotalk') > -1;
+
+            if (isChrome) {
+                _openBrowser();
+            } else if (isSafari) {
+                _openBrowser();
+            } else if (isSamsungBrowser) {
+                _openBrowser();
+            } else if (isKakaoBrowser) {
+                _openBrowser();
+            } else {
+                _openBrowser();
+            }
+        }
+
+        function _openBrowser(appUrl, marketUrl) {
             var startTime = new Date().getTime();
 
             var visibilityChangeHandler = function () {
@@ -115,7 +167,7 @@
             }, 2000); // 타임아웃 시간 조정 (필요에 따라)
         }
     </script>
-    <!--  -->
+
 </body>
 
 </html>
