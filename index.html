@@ -33,7 +33,6 @@
             /* 컨테이너 안쪽 여백 (선택적) */
         }
 
-
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -73,7 +72,7 @@
     <div class="button-container">
         <button class="button-secondary" onclick="_openBrowser()">앱링크테스트(android 스키마/ios universal)</button>
         <button class="button-secondary" onclick="">주소: seepop://?type=dog</button>
-        <button class="button-secondary" onclick="">변경 완료 15</button>
+        <button class="button-secondary" onclick="">변경 완료 16</button>
     </div>
     <script>
         const userAgent = navigator.userAgent.toLowerCase();
@@ -118,9 +117,7 @@
 
         function _userAppUrlIos() {
             const isChrome = userAgent.indexOf('crios') > -1; // iOS Chrome 감지
-            const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('crios') === -1; // iOS Safari 감지
-            // const isChrome = userAgent.indexOf('chrome') > -1 && userAgent.indexOf('edg') === -1 && userAgent.indexOf('opr') === -1 && userAgent.indexOf('samsungbrowser') === -1;
-            // const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('chrome') === -1;
+            const isSafari = userAgent.indexOf('safari') > -1 && userAgent.indexOf('crios') === -1; // iOS Safari 감지            
             const isSamsungBrowser = userAgent.indexOf('samsungbrowser') > -1;
             const isKakaoBrowser = userAgent.indexOf('kakaotalk') > -1;
 
